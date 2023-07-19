@@ -1,9 +1,17 @@
-import "./Todo.module.scss";
+import styles from "./Todo.module.scss";
+
+import { MainContext } from "@/states";
+import { useContext } from "react";
 const Todo = ({ todo }) => {
   return (
     <>
-      <h2>{todo.todo}</h2>
-      <h3>{todo.id}</h3>
+      <h2
+        className={`${styles.todo} ${
+          todo.completed === true ? styles.completed : styles.uncompleted
+        }`}
+      >
+        {todo.todo}
+      </h2>
     </>
   );
 };

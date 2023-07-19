@@ -1,0 +1,9 @@
+.todo {
+  &.completed {
+    text-decoration: line-through;
+    color: #0de52d;
+  }
+  &.uncompleted {
+    color: #e00f0f;
+  }
+}

@@ -1,17 +1,22 @@
 import Head from "next/head";
+import { useContext, useReducer, createContext } from "react";
 
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { useContext } from "react";
 import TodoList from "@/components/todoList/todoList";
 import { MainContext } from "@/states";
-
+// import { MainContent } from "@/store";
 import { todos } from "@/mocks/todolist";
 import InputText from "../components/inputText/index";
-
-const inter = Inter({ subsets: ["latin"] });
+// import { mainReducer } from "@/store/reducer.js";
+// import { initial_state } from "@/store";
+// import TodoItem from "@/components/todoItem/TodoItem";
+import { INITIAL_STATE } from "@/states/reducer";
+import { reducer } from "@/states/reducer";
 
 export default function Home() {
+  // const [state, dispatch] = useReducer(mainReducer, initial_state);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+
   return (
     <>
       <Head>
@@ -20,12 +25,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <>
-        <MainContext.Provider value={{ todos }}>
-          <InputText />
-          <TodoList />
-        </MainContext.Provider>
-      </>
+
+      {/* <MainContent.Provider value={{ state, dispatch }}>
+        <TodoItem />
+      </MainContent.Provider> */}
+      <MainContext.Provider value={{ todos }}>
+        <InputText />
+        <TodoList />
+      </MainContext.Provider>
     </>
   );
+}
+
+{
 }

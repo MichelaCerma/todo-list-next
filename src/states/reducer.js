@@ -1,14 +1,19 @@
+import { ACTION_TYPES } from "./actionTypes";
 export const INITIAL_STATE = {
-  text: "dwad",
-  checked: false,
+  todos: [],
+  completed: false,
 };
 
-export const InputReducer = (state, action) => {
+export const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case ACTION_TYPES.ADD_TODO:
       return {
         ...state,
-        text: action.payload,
+        todos: [...state.todos, action.payload],
+      };
+    case ACTION_TYPES.REMOVE_TODO:
+      return {
+        ...state,
       };
     default:
       return state;
