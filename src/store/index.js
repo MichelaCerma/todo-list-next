@@ -1,8 +1,8 @@
-import { createContext } from "react";
+// import { createContext } from "react";
 
-export const MainContent = createContext({});
+// export const MainContent = createContext({});
 
-export const initial_state = {
-  todos: [],
-  username: "chris",
-};
+// export const initial_state = {
+//   todos: [],
+//   username: "chris",
+// };

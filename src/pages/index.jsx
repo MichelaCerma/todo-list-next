@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import TodoList from "@/components/todoList/todoList";
 import { MainContext } from "@/states";
 // import { MainContent } from "@/store";
+import { app } from "../plugins/firebase";
 import { todos } from "@/mocks/todolist";
 import InputText from "../components/inputText/index";
 // import { mainReducer } from "@/store/reducer.js";
@@ -14,6 +15,7 @@ import { INITIAL_STATE } from "@/states/reducer";
 import { reducer } from "@/states/reducer";
 
 export default function Home() {
+  console.log(app);
   // const [state, dispatch] = useReducer(mainReducer, initial_state);
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
