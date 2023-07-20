@@ -4,13 +4,13 @@ import { MainContext } from "@/states";
 import Todo from "../todos";
 import InputText from "../inputText";
 
-
 const TodoList = () => {
   const todoData = useContext(MainContext);
 
   return (
     <>
-      {todoData.todos.map((todo) => (
+
+      {todoData.state.todos.map((todo) => (
         <Todo key={todo.id} todo={todo} />
       ))}
     </>

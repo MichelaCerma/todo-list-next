@@ -1,13 +1,16 @@
 import { useReducer, useState } from "react";
 import { useContext } from "react";
+
 import { MainContext } from "@/states";
 import styles from "./InputText.module.scss";
 import { INITIAL_STATE, reducer } from "@/states/reducer";
 import { ACTION_TYPES } from "@/states/actionTypes";
 import Todo from "../todos";
+import Link from "next/link";
 
 const InputText = () => {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  const { state, dispatch } = useContext(MainContext);
+
   const [inputTodo, setInputTodo] = useState("");
 
   const onHandleInput = (e) => {
@@ -18,7 +21,6 @@ const InputText = () => {
     dispatch({
       type: ACTION_TYPES.ADD_TODO,
       payload: {
-        id: Math.floor(Math.random() * 1000000),
         completed: false,
         todo: inputTodo,
       },
@@ -28,6 +30,10 @@ const InputText = () => {
 
   return (
     <>
+      <p>{state.username}</p>
+      <button className={styles.button}>
+        <Link href="/login">Login</Link>
+      </button>
       <form onSubmit={onHandleSumbmit}>
         <input
           type="text"

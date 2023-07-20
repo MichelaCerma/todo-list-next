@@ -29,9 +29,9 @@ export default function Home() {
       {/* <MainContent.Provider value={{ state, dispatch }}>
         <TodoItem />
       </MainContent.Provider> */}
-      <MainContext.Provider value={{ todos }}>
+      <MainContext.Provider value={{ state, dispatch }}>
         <InputText />
-        <TodoList />
+        {/* <TodoList /> */}
       </MainContext.Provider>
     </>
   );
